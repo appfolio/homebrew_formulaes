@@ -37,7 +37,13 @@ class ApacheSolr34 < Formula
         cp #{plist_path} ~/Library/LaunchAgents/
         launchctl load -w ~/Library/LaunchAgents/#{plist_path.basename}
 
-    !!! Solr cores are not persisted between restarts of the solr server. !!!
+    Web access:
+        http://localhost:8987/solr
+
+    Log:
+        tail -f /usr/local/var/log/apache-solr-34.log
+
+    !!! Solr cores are not persisted between restarts of the solr server !!!
   TEXT
   end
 
