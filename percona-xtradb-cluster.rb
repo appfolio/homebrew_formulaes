@@ -6,6 +6,12 @@ class PerconaXtradbCluster < Formula
   version '5.6.15-25.5.759'
   sha1 'cd883c3aa1483c74c5949f6d40630c315ce1b7d4'
 
+  # https://bugs.launchpad.net/codership-mysql/+bug/1309241
+  patch :p0 do
+    url 'https://launchpadlibrarian.net/173604067/bug.diff'
+    sha1 '2bcda55fef129879764df1c93ab4a1eb99dcf006'
+  end
+
   depends_on 'cmake' => :build
   depends_on 'pidof' unless MacOS.version >= :mountain_lion
 
