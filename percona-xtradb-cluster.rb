@@ -5,7 +5,12 @@ class PerconaXtradbCluster < Formula
   url 'http://www.percona.com/redir/downloads/Percona-XtraDB-Cluster-56/LATEST/source/Percona-XtraDB-Cluster-5.6.15.tar.gz'
   version '5.6.15-25.5.759'
   sha1 'cd883c3aa1483c74c5949f6d40630c315ce1b7d4'
-
+  
+  patch :p0 do
+    url 'https://gist.githubusercontent.com/Chehai/11230465/raw/e1fb4103b731cf8a14ab3405476226e6780f2071/bug.diff'
+    sha1 f34dafb46016cc5ac2525f7907ce073e986230f5
+  end
+  
   depends_on 'cmake' => :build
   depends_on 'pidof' unless MacOS.version >= :mountain_lion
 
